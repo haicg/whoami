@@ -1,3 +1,4 @@
-# My Awesome Book
+# 反思录
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+主要记录自己的一些好的想法或者做错的事情，用以审视自己的生活。让自己在未来能遇到更好的自己。
+
