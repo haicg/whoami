@@ -1,10 +1,23 @@
+<style>
+img{
+    width: 60%;
+    padding-left: 20%;
+}
+</style>
+padding-left = (100% - width) / 2
+
+
 # 新手用Python实现英语学习网站资料的批量下载，过程详解
 文章的最后有该工程全部代码，可以供大家下载。
 
 ## 基本步骤
 1. 访问该[英语学习网站](http://www.en8848.com.cn/tingli/brand/USA/)，进行手动下载测试。一共要经过三个页面的跳转才能到达每节课程的下载页面，这样要想把所有课程下载下来可能要天荒地老了。
+
+第一个页面：课程列表
 	![](pic/index-1.png)
+第二个页面：在线播放
 	![](pic/index-2.png)
+第三个页面：下载文件
 	![](pic/index-3.png)
 
 1. 用浏览器自带的页面分析工具（chrome的develop tool），找到每个页面跳转点的代码。
