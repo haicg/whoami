@@ -16,11 +16,13 @@
 利用浏览器的"view page source" 功能可以看到主页面的所有HTML代码，可以发现所有课程的第一跳转链接都放在一起，而且其中的title属性的内容都是“走遍美国第×课”，这样就可以通过分析主页面的HTML代码，取出tiltle为“走遍美国第” 开头的所有超链接的内容，就可以获取到当前主页上所有课程的跳转链接。
 
 - 点击[第1课的的跳转链接](http://www.en8848.com.cn/tingli/brand/USA/44209.html),此时可以看到第1课的在线音频和字幕，可以看到有一个[点击下载](pic/index-1), 我们通过chrome的developer tool 和view page source 功能，找到了这个下载路径，其实这是一个JS的页面跳转
+
 ```
 $(".jp-download").click(function(){
 			window.open('/e/action/down.php?classid=9340&id=44209&mp3=http://mp3.en8848.com/zhuo-bian-mei-guo/Family-Album/FamilyAlbum.rar">http://Mp3') ;   
 		});		
  ```
+ 
  分析到此，第二个步骤已经基本结束了，下面就是如何使用程序自动分析出所有课程的下载路径和自动下载所有的文件。
 
 3. 利用Python语言自动化上面的操作
@@ -58,10 +60,10 @@ response = requests.get(urlStr)
                 pattern = re.compile('(?<=jp-download)(.+?)open\s?'
                                      '\(\s?\'(.+?)\s?\'\)(.+?)(?<=;)', re.S)
                 res = re.search(pattern, script_str)
-```
+	```
 	下载页面的URL是通过一个JS的函数进行跳转的，所以先从页面代码里面找到对应的函数的内容，然后再对这个函数使用正则匹配，截取出URl的具体内容。
 	3. 正则匹配每个文件的下载路径
-```
+	```
         res = soup.find('a', id="dload")
         if 'href'in res.attrs:
             dowloadUrls["mp3"] = res.attrs['href']
