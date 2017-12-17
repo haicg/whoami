@@ -3,9 +3,9 @@
 
 ## 基本步骤
 1. 访问该[英语学习网站](http://www.en8848.com.cn/tingli/brand/USA/)，进行手动下载测试。一共要经过三个页面的跳转才能到达每节课程的下载页面，这样要想把所有课程下载下来可能要天荒地老了。
-	[页面一](pic/index-1.png)
-	[页面二](pic/index-2.png)
-	[页面三](pic/index-3.png)
+	![](pic/index-1.png)
+	![](pic/index-2.png)
+	![](pic/index-3.png)
 
 1. 用浏览器自带的页面分析工具（chrome的develop tool），找到每个页面跳转点的代码。
 	- 第一个页面含有多节课程的跳转链接,通过工具的指引，找到了第1课的超链接。
