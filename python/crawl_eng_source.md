@@ -39,6 +39,7 @@ response = requests.get(urlStr)
 	```
 	soup = BeautifulSoup(response.text, "html.parser")
 	其中response.text 就是HTML页面源码，就是上面第二步中用浏览器的View page  source 看到的内容，html.parser 其实页是python的一个解析HTML的模块，不过这个模块需要写大量的回调来处理HTML，从而得到你想要的数据，这边我们可以把它理解成是一种HTML的解析引擎。而BeautifulSoup可以选用多种HTML解析引擎，最终以合适方式给你返回结果。
+	```
 
 	- 从上面解析的HTML代码中匹配到需要的内容
 
@@ -46,11 +47,11 @@ response = requests.get(urlStr)
 	```
     pattrn = re.compile('\s*' + u'走遍美国第')
     res = soup.find_all('a', title=pattrn)
-```
+	```
 	基本思路就是找到超链接的title是以”走遍美国第“字符串开头的url。
 
 	2. 正则匹配到每个文件的下载页面的URL
-```
+	```
         for script_str_obj in soup.find_all("script"):
             script_str = script_str_obj.text
             if script_str.find("jp-download") != -1:
@@ -68,7 +69,7 @@ response = requests.get(urlStr)
         if 'href' in res.attrs:
             dowloadUrls["lrc"] = res.attrs['href']
 
-```
+	```
 最终的下载地址，通过正则匹配超链接的id为dload和dloadword这两个URL，第一个对应的是音频的下载路径，第二个对应的是字幕的下载路径。
 
 ## 结束语
