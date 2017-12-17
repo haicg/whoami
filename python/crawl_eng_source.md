@@ -1,11 +1,3 @@
-<style>
-img{
-    width: 60%;
-    padding-left: 20%;
-}
-</style>
-padding-left = (100% - width) / 2
-
 
 # 新手用Python实现英语学习网站资料的批量下载，过程详解
 文章的最后有该工程全部代码，可以供大家下载。
